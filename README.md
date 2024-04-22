@@ -1,18 +1,18 @@
-# EMRFLOW :cyclone:
+# EMRFlow :cyclone:
 
 
-<span style="color:purple;">**EMRFLOW** </span> is designed to simplify the process of running PySpark jobs on Amazon EMR (Elastic Map Reduce). It abstracts the complexities of interacting with EMR APIs and provides an intuitive command-line interface to effortlessly submit, monitor, and list your EMR PySpark jobs.
+<span style="color:purple;">**EMRFlow** </span> is designed to simplify the process of running PySpark jobs on [Amazon EMR](https://aws.amazon.com/emr/) (Elastic Map Reduce). It abstracts the complexities of interacting with EMR APIs and provides an intuitive command-line interface and python library to effortlessly submit, monitor, and list your EMR PySpark jobs.
 
-<span style="color:purple;">**EMRFLOW** </span> serves as both a library and a command-line tool.
+<span style="color:purple;">**EMRFlow** </span> serves as both a library and a command-line tool.
 
-To install `EMRFLOW`, please run:
+To install `EMRFlow`, please run:
 
 ```bash
 pip install emrflow
 ```
 ## Configuration
 
-Create an `emr_serverless_config.json` file containing the specified details and store it in your workbench's home directory
+Create an `emr_serverless_config.json` file containing the specified details and store it in your home directory
 ```json
 {
     "application_id": "",
@@ -22,8 +22,9 @@ Create an `emr_serverless_config.json` file containing the specified details and
 ```
 
 ## Usage
+Please read the [GETTING STARTED](GETTING_STARTED.md) to integrate <span style="color:purple;">**EMRFlow** </span> into your project.
 
-<span style="color:purple;">**EMRFLOW** </span> offers several commands to manage your Pypark jobs. Let's explore some of the key functionalities:
+<span style="color:purple;">**EMRFlow** </span> offers several commands to manage your Pypark jobs. Let's explore some key functionalities:
 
 
 ### Help
@@ -34,18 +35,21 @@ emrflow serverless --help
 
 
 ### Package Dependencies
+
+You will need to package dependencies before running an EMR job if you have external libraries needing to be installed or local imports from your code base. See Scenario 2-4 in [GETTING STARTED](GETTING_STARTED.md).
 ```bash
 emrflow serverless package-dependencies --help
 ```
 ![Serverless Options](images/emr-serverless-package-dependencies-help.png)
 
+
+
+
+### Submit PySpark Job
 ```bash
 emrflow serverless run --help
 ```
 ![Serverless Options](images/emr-serverless-run-help.png)
-
-
-### Submit PySpark Job
 ```bash
 emrflow serverless run \
         --job-name "<job-name>" \
@@ -105,15 +109,13 @@ emr_job_id = emr_serverless.run(
 print(emr_job_id)
 ```
 
-Please read the [GETTING STARTED](GETTING_STARTED.md) to integrated <span style="color:purple;">**EMRFLOW** </span> into your project
-
 
 **And so much more.......!!!**
 
 
 ## Contributing
 
-We welcome contributions to EMRFLOW. Please open issue and discussing the change you would like to see. Creating a feature branch to work on that issue.
+We welcome contributions to EMRFlow. Please open an issue discussing the change you would like to see. Create a feature branch to work on that issue and open a Pull Request once it is ready for review.
 
 ### Code style
 
