@@ -113,7 +113,7 @@ Please read the [GETTING STARTED](GETTING_STARTED.md) to integrated <span style=
 
 ## Contributing
 
-We welcome contributions to EMRFLOW. Please open issue and discussing the change you would like to see. Creating a feature branch to work on that issue. Submitting a PR for review by MLOps team.
+We welcome contributions to EMRFLOW. Please open issue and discussing the change you would like to see. Creating a feature branch to work on that issue.
 
 ### Code style
 
