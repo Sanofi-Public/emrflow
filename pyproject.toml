@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "EMRFlow"
+version = "1.4.1"
+description = "Run/Monitor your PySpark Jobs in Amazon EMR"
+authors = ["Utkarsh Vashisth <utkarsh.vashisth@sanofi.com>"]
+readme = "README.md"
+packages = [{include = "emrflow"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+# base project requirements
+boto3 = {version = ">=1.25.4"}   #always fix version for boto3
+typer = {extras = ["all"], version = "^0.12.0"}
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = {version = ">=7.2.2"}
+pytest-cov  = {version = ">=4.0.0"}
+pytest-mock = {version = ">=3.10.0"}
+pylint = ">=2.17.2"
+pyYAML = ">=6.0.0"
+black = {extras = ["jupyter"], version = ">=23.3.0"}
+pre-commit = ">=3.1.0"
+isort = ">=5.13.2"
+aiohttp = ">=3.9.4"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[tool.black]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+
+[tool.pylint.main]
+disable = ["line-too-long", "logging-fstring-interpolation", "attribute-defined-outside-init"]
+
+[tool.pylint.ignore]
+ignore-paths=["test/.*$", "tests/.*$"]
+
+[tool.pylint.formatting]
+max-line-length = 88
+
+[tool.coverage.run]
+omit = ["emrflow/emr_serverless.py","emrflow/main.py"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+emrflow = "emrflow.main:app"

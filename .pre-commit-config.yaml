@@ -1,0 +1,51 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+fail_fast: false
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    - id: check-ast
+    - id: check-byte-order-marker
+    - id: check-case-conflict
+    - id: check-docstring-first
+    - id: check-executables-have-shebangs
+    - id: debug-statements
+    - id: mixed-line-ending
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+    - id: check-yaml
+      exclude: ^\.py$
+    - id: check-json
+      exclude: ^\.py$
+    - id: check-added-large-files
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.9.3
+    hooks:
+      - id: isort
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+      - id: black-jupyter
+        language_version: python3.8
+# Run Black on Python code blocks in documentation files.
+  - repo: https://github.com/asottile/blacken-docs
+    rev: v1.8.0
+    hooks:
+    - id: blacken-docs
+      additional_dependencies: [black==21.12b0]  # fix by this thread - https://github.com/adamchainz/blacken-docs/issues/141
+  - repo: https://github.com/python-poetry/poetry
+    rev: '1.7.1'  # add version here
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+        args: ["--no-update"]
+  - repo: local
+    hooks:
+      - id: jupyter-nb-clear-output
+        name: jupyter-nb-clear-output
+        files: \.ipynb$
+        stages: [commit]
+        language: system
+        entry: jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace
