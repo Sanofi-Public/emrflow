@@ -12,7 +12,7 @@ pip install emrflow
 ```
 ## Configuration
 
-Create an `emr_serverless_config.json` file containing the specified details and store it in your workbench's home directory
+Create an `emr_serverless_config.json` file containing the specified details and store it in your home directory
 ```json
 {
     "application_id": "",

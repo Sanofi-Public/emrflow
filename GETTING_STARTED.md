@@ -92,9 +92,13 @@ print(emr_job_id)
 ```
 
 ## Scenario 2: Main Script depends on external libraries not installed in EMR and is Standalone
-### Recommendation
-- Build the dependency package (that only includes library package) using `package-dependencies` command
-- Simply submit the job via `run` command
+
+[!NOTE]
+> EMR only supports core libraries ![emr-release](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html). If you have external libraries required for your script, this is the scenario for you.
+
+[!TIP]
+* Build the dependency package (that only includes library package) using `package-dependencies` command. 
+* Simply submit the job via `run` command
 
 
 ```python
@@ -333,7 +337,10 @@ print(emr_job_id)
 ```
 ## Scenario 4: The Main Script is not standalone. Additionally, it requires both Python modules and Python libraries in EMR
 
-### Recommendation
+[!NOTE]
+> EMR only supports core libraries ![emr-release](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html). If you have external libraries required for your script, this is the scenario for you.
+
+[!TIP]
 - Build the dependency package (includes both project and library) using `package-dependencies` command
 - Simply submit the job via `run` command
 
