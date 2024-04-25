@@ -17,7 +17,7 @@ Create an `emr_serverless_config.json` file containing the specified details and
 {
     "application_id": "",
     "job_role": "",
-    "region": "eu-west-1"
+    "region": ""
 }
 ```
 
