@@ -97,7 +97,7 @@ print(emr_job_id)
 > EMR only supports core libraries: [emr-release](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html). If you have external libraries required for your script, this is the scenario for you.
 
 > [!TIP]
-> * Build the dependency package (that only includes library package) using `package-dependencies` command. 
+> * Build the dependency package (that only includes library package) using `package-dependencies` command.
 > * Simply submit the job via `run` command
 
 
