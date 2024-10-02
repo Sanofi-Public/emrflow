@@ -60,3 +60,6 @@ Add APP_GEN1 tag in every run to assist in tracking for OneAI platform team
 
 ## 1.4.1
 * update requirements
+
+## 1.4.2
+* remove dev dependencies

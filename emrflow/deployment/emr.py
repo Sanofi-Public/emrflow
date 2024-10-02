@@ -38,9 +38,10 @@ class EMR(ABC):
         self.err_log_uri = ""
         self.emr_type = emr_type
 
-        self.emr_client = boto3.client(emr_type)
         if region:
             self.emr_client = boto3.client(emr_type, region_name=region)
+        else:
+            self.emr_client = boto3.client(emr_type)
 
     @abstractmethod
     def get_job_run(self, job_run_id: str) -> Dict:

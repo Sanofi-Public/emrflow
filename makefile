@@ -1,7 +1,3 @@
-dev-install:
-	pip install poetry==1.7.1 && \
-	poetry install --with dev;
-
 install:
 	pip install poetry==1.7.1 && \
 	poetry install;
